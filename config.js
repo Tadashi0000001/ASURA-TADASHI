@@ -1,6 +1,6 @@
 module.exports = {
   DATABASE_URL: 'your-database-url',
-  SESSION_ID: 'your-session-id',
+  SESSION_ID: 'TADASHI=4u9lHSbJ#ouU-i6vIu_HpMDrXBjb23Spad6To23jMtZQyJyo2fas',
   PORT: 9090,
   OWNER_NUMBER: '94775587705', 
   IMGBB_API_KEY: '3839e303da7b555ec5d574e53eb836d2',
