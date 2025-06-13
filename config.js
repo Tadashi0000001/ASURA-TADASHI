@@ -1,5 +1,5 @@
 module.exports = {
-  DATABASE_URL: 'your-database-url',
+  DATABASE_URL: 'postgresql://tadashi_database_user:97JPksVRqF7ZndB3a9GQB7M8cl26znFG@dpg-d15crt3uibrs73bre0h0-a.oregon-postgres.render.com/tadashi_database',
   SESSION_ID: 'TADASHI=4u9lHSbJ#ouU-i6vIu_HpMDrXBjb23Spad6To23jMtZQyJyo2fas',
   PORT: 9090,
   OWNER_NUMBER: '94775587705', 
