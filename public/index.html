@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Send WhatsApp Message</title>
+  <style>
+    body {
+      background: #0f0f0f;
+      font-family: Arial, sans-serif;
+      color: #00ffcc;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+
+    input, textarea, button {
+      padding: 10px;
+      margin: 10px;
+      border-radius: 8px;
+      border: none;
+      font-size: 16px;
+      width: 80%;
+      max-width: 400px;
+    }
+
+    button {
+      background-color: #00ffcc;
+      color: #000;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #00ddaa;
+    }
+
+    .result {
+      margin-top: 20px;
+      font-size: 14px;
+      color: #ffffff;
+    }
+  </style>
+</head>
+<body>
+  <h1>📤 Send WhatsApp Message</h1>
+
+  <input type="text" id="number" placeholder="Enter WhatsApp Number (e.g., 94775587705)">
+  <textarea id="message" placeholder="Enter your message (e.g., *Hello ᴛᴀᴅᴀꜱʜɪ* 🔥)"></textarea>
+  <button onclick="sendMessage()">Send Message</button>
+
+  <div class="result" id="result"></div>
+
+  <script>
+    async function sendMessage() {
+      const number = document.getElementById("number").value.trim();
+      const message = document.getElementById("message").value.trim();
+
+      if (!number || !message) {
+        document.getElementById("result").innerText = "Please enter both number and message!";
+        return;
+      }
+
+      const encodedMsg = encodeURIComponent(message);
+      const apiURL = `/send-message?number=${number}&message=${encodedMsg}`;
+
+      document.getElementById("result").innerText = "Sending...";
+
+      try {
+        const res = await fetch(apiURL);
+        const text = await res.text();
+        document.getElementById("result").innerText = `✅ Message sent!\n\nResponse: ${text}`;
+      } catch (error) {
+        document.getElementById("result").innerText = `❌ Failed to send message.\n\nError: ${error.message}`;
+      }
+    }
+  </script>
+</body>
+</html>
