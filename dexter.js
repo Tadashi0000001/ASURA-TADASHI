@@ -109,7 +109,7 @@ async function downloadSessionFile() {
       console.error('Please add your session to SESSION_ID env variable!');
       process.exit(1);
     }
-    const sessdata = config.SESSION_ID.replace('TADASHI-ID=', '');
+    const sessdata = config.SESSION_ID.replace('TADASHI=', '');
     const file = File.fromURL(`https://mega.nz/file/${sessdata}`);
     await withRetry(() => new Promise((resolve, reject) => {
       file.download((err, data) => {
